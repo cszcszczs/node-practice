@@ -1,6 +1,7 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
-const url = process.env.MONGODB_URI;
+const url =
+  "mongodb+srv://cszcszczs:ondesolle00@cluster0.xamgckx.mongodb.net/note-app?retryWrites=true&w=majority";
 
 console.log("connecting to", url);
 
@@ -11,7 +12,6 @@ mongoose
   })
   .catch((error) => {
     console.log("error connecting to MongoDB:", error.message);
-    console.log(typeof url);
   });
 
 const noteSchema = new mongoose.Schema({
