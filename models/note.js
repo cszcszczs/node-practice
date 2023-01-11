@@ -1,8 +1,6 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
-const url =
-  process.env.MONGODB_URI ||
-  "mongodb+srv://cszcszczs:ondesolle00@cluster0.xamgckx.mongodb.net/note-app?retryWrites=true&w=majority";
+const url = process.env.MONGODB_URI;
 
 console.log("connecting to", url);
 
@@ -16,8 +14,15 @@ mongoose
   });
 
 const noteSchema = new mongoose.Schema({
-  content: String,
-  date: Date,
+  content: {
+    type: String,
+    minlength: 5,
+    required: true,
+  },
+  date: {
+    type: Date,
+    required: true,
+  },
   important: Boolean,
 });
 
